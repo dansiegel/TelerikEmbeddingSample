@@ -1,0 +1,10 @@
+{
+  "profiles": {
+	"TelerikEmbeddingSample.Windows (Package)": {
+	  "commandName": "MsixPackage"
+	},
+	"TelerikEmbeddingSample.Windows (Unpackaged)": {
+	  "commandName": "Project"
+	}
+  }
+}

@@ -1,0 +1,498 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) or '$(EnableWindowsTargeting)' == 'true'">$(TargetFrameworks);net7.0-windows10.0.19041</TargetFrameworks>
+		<TargetFrameworks>$(TargetFrameworks);net7.0;net7.0-ios;net7.0-android;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="'$(OverrideTargetFrameworks)'!=''">$(OverrideTargetFrameworks)</TargetFrameworks>
+
+		<!-- Ensures the .xr.xml files are generated in a proper layout folder -->
+		<GenerateLibraryLayout>true</GenerateLibraryLayout>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Uno.Dsp.Tasks" />
+		<PackageReference Include="Uno.WinUI" />
+		<PackageReference Include="Uno.Resizetizer" />
+		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="Uno.Extensions.Configuration" />
+		<PackageReference Include="Uno.Extensions.Logging.WinUI" />
+		<PackageReference Include="Uno.Extensions.Logging.Serilog" />
+		<PackageReference Include="Uno.Extensions.Maui.WinUI" />
+		<PackageReference Include="Uno.Material.WinUI" />
+		<PackageReference Include="Uno.Toolkit.WinUI.Material" />
+		<PackageReference Include="Uno.Toolkit.WinUI" />
+		<PackageReference Include="Uno.Extensions.Hosting.WinUI" />
+		<PackageReference Include="Uno.Extensions.Localization.WinUI" />
+		<PackageReference Include="Uno.Extensions.Navigation.Toolkit.WinUI" />
+		<PackageReference Include="Uno.Extensions.Navigation.WinUI" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" />
+		<PackageReference Include="CommunityToolkit.Maui" />
+	</ItemGroup>
+
+	<Choose>
+		<When Condition="$(IsWinAppSdk)">
+			<PropertyGroup>
+				<!--
+				If you encounter this error message:
+
+					error NETSDK1148: A referenced assembly was compiled using a newer version of Microsoft.Windows.SDK.NET.dll.
+					Please update to a newer .NET SDK in order to reference this assembly.
+
+				This means that the two packages below must be aligned with the "build" version number of
+				the "Microsoft.Windows.SDK.BuildTools" package above, and the "revision" version number
+				must be the highest found in https://www.nuget.org/packages/Microsoft.Windows.SDK.NET.Ref.
+				-->
+				<!-- <WindowsSdkPackageVersion>10.0.22621.28</WindowsSdkPackageVersion> -->
+			</PropertyGroup>
+		</When>
+		<Otherwise>
+			<ItemGroup>
+				<!-- Include all images by default - matches the __WindowsAppSdkDefaultImageIncludes property in the WindowsAppSDK -->
+				<Content Include="Assets\**;**/*.png;**/*.bmp;**/*.jpg;**/*.dds;**/*.tif;**/*.tga;**/*.gif" Exclude="bin\**;obj\**;**\*.svg" />
+				<Page Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+				<Compile Update="**\*.xaml.cs">
+					<DependentUpon>%(Filename)</DependentUpon>
+				</Compile>
+				<PRIResource Include="**\*.resw" />
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+
+	<ItemGroup>
+		<ProjectReference Include="..\TelerikEmbeddingSample.MauiControls\TelerikEmbeddingSample.MauiControls.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<UnoDspImportColors Include="Styles\*.zip" Generator="Xaml" />
+		<UnoImage Include="Assets\**\*.svg" />
+		<EmbeddedResource Include="appsettings.json" />
+		<EmbeddedResource Include="Business\Data\OrdersDataSource.xml" />
+		<EmbeddedResource Include="Business\Data\PeopleDataSource.xml" />
+		<EmbeddedResource Include="appsettings.*.json" DependentUpon="appsettings.json" />
+		<UpToDateCheckInput Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="Assets\Images\accordion.svg" />
+	  <Content Remove="Assets\Images\airplane.svg" />
+	  <Content Remove="Assets\Images\american_pancakes.png" />
+	  <Content Remove="Assets\Images\arrowleft.svg" />
+	  <Content Remove="Assets\Images\arrowright.svg" />
+	  <Content Remove="Assets\Images\autocomplete.svg" />
+	  <Content Remove="Assets\Images\autocomplete_white.svg" />
+	  <Content Remove="Assets\Images\badgeview.svg" />
+	  <Content Remove="Assets\Images\badgeview_white.svg" />
+	  <Content Remove="Assets\Images\barcode.svg" />
+	  <Content Remove="Assets\Images\barcodespecialoffersalad.png" />
+	  <Content Remove="Assets\Images\beef.svg" />
+	  <Content Remove="Assets\Images\belgian_chocolate.png" />
+	  <Content Remove="Assets\Images\blueberry_waffle.png" />
+	  <Content Remove="Assets\Images\border.svg" />
+	  <Content Remove="Assets\Images\borderconfigurationavatar.png" />
+	  <Content Remove="Assets\Images\border_user1.png" />
+	  <Content Remove="Assets\Images\businessclass.svg" />
+	  <Content Remove="Assets\Images\busyindicator.svg" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery10_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery10_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery1_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery1_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery2_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery2_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery3_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery3_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery4_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery4_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery5_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery5_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery6_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery6_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery7_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery7_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery8_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery8_header_inactive.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery9_header_active.png" />
+	  <Content Remove="Assets\Images\busyindicator_theming_gallery9_header_inactive.png" />
+	  <Content Remove="Assets\Images\button.svg" />
+	  <Content Remove="Assets\Images\button_recipes_bread.png" />
+	  <Content Remove="Assets\Images\button_recipes_brownies.png" />
+	  <Content Remove="Assets\Images\button_recipes_cakes.png" />
+	  <Content Remove="Assets\Images\button_recipes_cocktails.png" />
+	  <Content Remove="Assets\Images\button_recipes_desserts.png" />
+	  <Content Remove="Assets\Images\button_recipes_dips.png" />
+	  <Content Remove="Assets\Images\button_recipes_fruits.png" />
+	  <Content Remove="Assets\Images\button_recipes_pancakes.png" />
+	  <Content Remove="Assets\Images\button_recipes_pizza.png" />
+	  <Content Remove="Assets\Images\button_recipes_sandwiches.png" />
+	  <Content Remove="Assets\Images\button_recipes_soups.png" />
+	  <Content Remove="Assets\Images\button_theming.png" />
+	  <Content Remove="Assets\Images\button_white.svg" />
+	  <Content Remove="Assets\Images\calendar.svg" />
+	  <Content Remove="Assets\Images\calendar_white.svg" />
+	  <Content Remove="Assets\Images\car.svg" />
+	  <Content Remove="Assets\Images\carpetcleaning.svg" />
+	  <Content Remove="Assets\Images\chartarea.svg" />
+	  <Content Remove="Assets\Images\chartarea1headeractive.png" />
+	  <Content Remove="Assets\Images\chartarea1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartarea2headeractive.png" />
+	  <Content Remove="Assets\Images\chartarea2headerinactive.png" />
+	  <Content Remove="Assets\Images\chartarea3headeractive.png" />
+	  <Content Remove="Assets\Images\chartarea3headerinactive.png" />
+	  <Content Remove="Assets\Images\chartarea4headeractive.png" />
+	  <Content Remove="Assets\Images\chartarea4headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar.svg" />
+	  <Content Remove="Assets\Images\chartbar1headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar2headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar2headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar3headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar3headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar4headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar4headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar5headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar5headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar6headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar6headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar7headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar7headerinactive.png" />
+	  <Content Remove="Assets\Images\chartbar8headeractive.png" />
+	  <Content Remove="Assets\Images\chartbar8headerinactive.png" />
+	  <Content Remove="Assets\Images\chartdonut1headeractive.png" />
+	  <Content Remove="Assets\Images\chartdonut1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartfinancial.svg" />
+	  <Content Remove="Assets\Images\chartfinancial1headeractive.png" />
+	  <Content Remove="Assets\Images\chartfinancial1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartfinancial2headeractive.png" />
+	  <Content Remove="Assets\Images\chartfinancial2headerinactive.png" />
+	  <Content Remove="Assets\Images\chartfinancial3headeractive.png" />
+	  <Content Remove="Assets\Images\chartfinancial3headerinactive.png" />
+	  <Content Remove="Assets\Images\chartfinancialindicator.svg" />
+	  <Content Remove="Assets\Images\chartline.svg" />
+	  <Content Remove="Assets\Images\chartline1headeractive.png" />
+	  <Content Remove="Assets\Images\chartline1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartline2headeractive.png" />
+	  <Content Remove="Assets\Images\chartline2headerinactive.png" />
+	  <Content Remove="Assets\Images\chartline3headeractive.png" />
+	  <Content Remove="Assets\Images\chartline3headerinactive.png" />
+	  <Content Remove="Assets\Images\chartline4headeractive.png" />
+	  <Content Remove="Assets\Images\chartline4headerinactive.png" />
+	  <Content Remove="Assets\Images\chartnullvalues.svg" />
+	  <Content Remove="Assets\Images\chartpie.svg" />
+	  <Content Remove="Assets\Images\chartpie1headeractive.png" />
+	  <Content Remove="Assets\Images\chartpie1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartpie2headeractive.png" />
+	  <Content Remove="Assets\Images\chartpie2headerinactive.png" />
+	  <Content Remove="Assets\Images\chartscatter.svg" />
+	  <Content Remove="Assets\Images\chartscattered1headeractive.png" />
+	  <Content Remove="Assets\Images\chartscattered1headerinactive.png" />
+	  <Content Remove="Assets\Images\chartscattered2headeractive.png" />
+	  <Content Remove="Assets\Images\chartscattered2headerinactive.png" />
+	  <Content Remove="Assets\Images\chartscattered3headeractive.png" />
+	  <Content Remove="Assets\Images\chartscattered3headerinactive.png" />
+	  <Content Remove="Assets\Images\chartscattered4headeractive.png" />
+	  <Content Remove="Assets\Images\chartscattered4headerinactive.png" />
+	  <Content Remove="Assets\Images\chartscattered5headeractive.png" />
+	  <Content Remove="Assets\Images\chartscattered5headerinactive.png" />
+	  <Content Remove="Assets\Images\chat.svg" />
+	  <Content Remove="Assets\Images\checkbox.svg" />
+	  <Content Remove="Assets\Images\chicken.svg" />
+	  <Content Remove="Assets\Images\cleaning.svg" />
+	  <Content Remove="Assets\Images\clock.svg" />
+	  <Content Remove="Assets\Images\combobox.svg" />
+	  <Content Remove="Assets\Images\configuration.svg" />
+	  <Content Remove="Assets\Images\customization.svg" />
+	  <Content Remove="Assets\Images\dataform.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_date.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_email.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_gender.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_name.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_password.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_phone.svg" />
+	  <Content Remove="Assets\Images\dataform_customization_username.svg" />
+	  <Content Remove="Assets\Images\dataform_white.svg" />
+	  <Content Remove="Assets\Images\datagrid.svg" />
+	  <Content Remove="Assets\Images\datagrid_white.svg" />
+	  <Content Remove="Assets\Images\datepicker.svg" />
+	  <Content Remove="Assets\Images\datetimepicker.svg" />
+	  <Content Remove="Assets\Images\dev.svg" />
+	  <Content Remove="Assets\Images\developer.svg" />
+	  <Content Remove="Assets\Images\developer_grey.svg" />
+	  <Content Remove="Assets\Images\docklayout.svg" />
+	  <Content Remove="Assets\Images\docx_file.png" />
+	  <Content Remove="Assets\Images\dotnet_bot.svg" />
+	  <Content Remove="Assets\Images\dotnet_bot_2a.svg" />
+	  <Content Remove="Assets\Images\economyclass.svg" />
+	  <Content Remove="Assets\Images\encoding.svg" />
+	  <Content Remove="Assets\Images\entry.svg" />
+	  <Content Remove="Assets\Images\entryfirstlook.svg" />
+	  <Content Remove="Assets\Images\expander.svg" />
+	  <Content Remove="Assets\Images\expenses.svg" />
+	  <Content Remove="Assets\Images\export_html.svg" />
+	  <Content Remove="Assets\Images\export_pdf.svg" />
+	  <Content Remove="Assets\Images\export_text.svg" />
+	  <Content Remove="Assets\Images\export_word.svg" />
+	  <Content Remove="Assets\Images\firstclass.svg" />
+	  <Content Remove="Assets\Images\fish.svg" />
+	  <Content Remove="Assets\Images\flag_1.png" />
+	  <Content Remove="Assets\Images\flag_2.png" />
+	  <Content Remove="Assets\Images\flag_3.png" />
+	  <Content Remove="Assets\Images\flag_4.png" />
+	  <Content Remove="Assets\Images\flag_5.png" />
+	  <Content Remove="Assets\Images\flag_6.png" />
+	  <Content Remove="Assets\Images\flight.svg" />
+	  <Content Remove="Assets\Images\gauge.svg" />
+	  <Content Remove="Assets\Images\home.svg" />
+	  <Content Remove="Assets\Images\homepagebackground.svg" />
+	  <Content Remove="Assets\Images\homepainting.svg" />
+	  <Content Remove="Assets\Images\icon_burger.svg" />
+	  <Content Remove="Assets\Images\icon_csharp_ccw.svg" />
+	  <Content Remove="Assets\Images\icon_csharp_cw.svg" />
+	  <Content Remove="Assets\Images\icon_documentation_white.svg" />
+	  <Content Remove="Assets\Images\icon_feedback_white.svg" />
+	  <Content Remove="Assets\Images\icon_ninjas.svg" />
+	  <Content Remove="Assets\Images\icon_sun.svg" />
+	  <Content Remove="Assets\Images\icon_umbrella.svg" />
+	  <Content Remove="Assets\Images\icon_video.svg" />
+	  <Content Remove="Assets\Images\imageeditor.svg" />
+	  <Content Remove="Assets\Images\imageeditor_white.svg" />
+	  <Content Remove="Assets\Images\import_html.svg" />
+	  <Content Remove="Assets\Images\import_pdf.svg" />
+	  <Content Remove="Assets\Images\import_text.svg" />
+	  <Content Remove="Assets\Images\import_word.svg" />
+	  <Content Remove="Assets\Images\info_desktop.svg" />
+	  <Content Remove="Assets\Images\info_mobile.svg" />
+	  <Content Remove="Assets\Images\info_mobile_white.svg" />
+	  <Content Remove="Assets\Images\itemscontrol.svg" />
+	  <Content Remove="Assets\Images\length.svg" />
+	  <Content Remove="Assets\Images\listpicker.svg" />
+	  <Content Remove="Assets\Images\listview.svg" />
+	  <Content Remove="Assets\Images\lock.svg" />
+	  <Content Remove="Assets\Images\logo.svg" />
+	  <Content Remove="Assets\Images\logosplashscreen.svg" />
+	  <Content Remove="Assets\Images\logo_cryptoapp.svg" />
+	  <Content Remove="Assets\Images\logo_progress.svg" />
+	  <Content Remove="Assets\Images\map.svg" />
+	  <Content Remove="Assets\Images\maskedentry.svg" />
+	  <Content Remove="Assets\Images\melodicchillout.svg" />
+	  <Content Remove="Assets\Images\melodicprogressive.svg" />
+	  <Content Remove="Assets\Images\nodata.svg" />
+	  <Content Remove="Assets\Images\numericinput.svg" />
+	  <Content Remove="Assets\Images\pasta.svg" />
+	  <Content Remove="Assets\Images\path.svg" />
+	  <Content Remove="Assets\Images\pdfprocessing.svg" />
+	  <Content Remove="Assets\Images\pdfprocessingfirstlookscreen.png" />
+	  <Content Remove="Assets\Images\pdfviewer.svg" />
+	  <Content Remove="Assets\Images\pdfviewer_white.svg" />
+	  <Content Remove="Assets\Images\pdf_file.png" />
+	  <Content Remove="Assets\Images\person_1.png" />
+	  <Content Remove="Assets\Images\person_2.png" />
+	  <Content Remove="Assets\Images\person_3.png" />
+	  <Content Remove="Assets\Images\person_4.png" />
+	  <Content Remove="Assets\Images\person_5.png" />
+	  <Content Remove="Assets\Images\person_6.png" />
+	  <Content Remove="Assets\Images\person_7.png" />
+	  <Content Remove="Assets\Images\person_8.png" />
+	  <Content Remove="Assets\Images\person_9.png" />
+	  <Content Remove="Assets\Images\png_file.png" />
+	  <Content Remove="Assets\Images\popup.svg" />
+	  <Content Remove="Assets\Images\popup_drive_icon.svg" />
+	  <Content Remove="Assets\Images\pork.svg" />
+	  <Content Remove="Assets\Images\productmanager.svg" />
+	  <Content Remove="Assets\Images\productmanager_grey.svg" />
+	  <Content Remove="Assets\Images\progressbar.svg" />
+	  <Content Remove="Assets\Images\qa.svg" />
+	  <Content Remove="Assets\Images\rating.svg" />
+	  <Content Remove="Assets\Images\ratingrestaurantlogo.svg" />
+	  <Content Remove="Assets\Images\remote_work.svg" />
+	  <Content Remove="Assets\Images\richtexteditor.svg" />
+	  <Content Remove="Assets\Images\salad.png" />
+	  <Content Remove="Assets\Images\salad_1.png" />
+	  <Content Remove="Assets\Images\salad_2.png" />
+	  <Content Remove="Assets\Images\salad_3.png" />
+	  <Content Remove="Assets\Images\salad_4.png" />
+	  <Content Remove="Assets\Images\search.svg" />
+	  <Content Remove="Assets\Images\searchentry.svg" />
+	  <Content Remove="Assets\Images\searchheader.svg" />
+	  <Content Remove="Assets\Images\segmentedcontrol.svg" />
+	  <Content Remove="Assets\Images\selected_item.png" />
+	  <Content Remove="Assets\Images\settings.svg" />
+	  <Content Remove="Assets\Images\sidedrawer.svg" />
+	  <Content Remove="Assets\Images\signaturepad.svg" />
+	  <Content Remove="Assets\Images\slideview.svg" />
+	  <Content Remove="Assets\Images\spreadstreamprocessing.svg" />
+	  <Content Remove="Assets\Images\tabview.svg" />
+	  <Content Remove="Assets\Images\templatedpicker.svg" />
+	  <Content Remove="Assets\Images\timepicker.svg" />
+	  <Content Remove="Assets\Images\timespanpicker.svg" />
+	  <Content Remove="Assets\Images\time_off.svg" />
+	  <Content Remove="Assets\Images\tiramisu.png" />
+	  <Content Remove="Assets\Images\toolbar.svg" />
+	  <Content Remove="Assets\Images\toolbar_white.svg" />
+	  <Content Remove="Assets\Images\top.svg" />
+	  <Content Remove="Assets\Images\train.svg" />
+	  <Content Remove="Assets\Images\treeview.svg" />
+	  <Content Remove="Assets\Images\unselected_item.png" />
+	  <Content Remove="Assets\Images\ux.svg" />
+	  <Content Remove="Assets\Images\uxdesigner.svg" />
+	  <Content Remove="Assets\Images\uxdesigner_grey.svg" />
+	  <Content Remove="Assets\Images\vacationbot.png" />
+	  <Content Remove="Assets\Images\viewcode.svg" />
+	  <Content Remove="Assets\Images\viewcode_white.svg" />
+	  <Content Remove="Assets\Images\vocalchillout.svg" />
+	  <Content Remove="Assets\Images\wordsprocessing.svg" />
+	  <Content Remove="Assets\Images\wraplayout.svg" />
+	  <Content Remove="Assets\Images\xlsx_file.png" />
+	  <Content Remove="Assets\Images\ziplibrary.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Assets\Images\accordion.svg" />
+	  <None Remove="Assets\Images\airplane.svg" />
+	  <None Remove="Assets\Images\arrowleft.svg" />
+	  <None Remove="Assets\Images\arrowright.svg" />
+	  <None Remove="Assets\Images\autocomplete.svg" />
+	  <None Remove="Assets\Images\autocomplete_white.svg" />
+	  <None Remove="Assets\Images\badgeview.svg" />
+	  <None Remove="Assets\Images\badgeview_white.svg" />
+	  <None Remove="Assets\Images\barcode.svg" />
+	  <None Remove="Assets\Images\beef.svg" />
+	  <None Remove="Assets\Images\border.svg" />
+	  <None Remove="Assets\Images\businessclass.svg" />
+	  <None Remove="Assets\Images\busyindicator.svg" />
+	  <None Remove="Assets\Images\button.svg" />
+	  <None Remove="Assets\Images\button_white.svg" />
+	  <None Remove="Assets\Images\calendar.svg" />
+	  <None Remove="Assets\Images\calendar_white.svg" />
+	  <None Remove="Assets\Images\car.svg" />
+	  <None Remove="Assets\Images\carpetcleaning.svg" />
+	  <None Remove="Assets\Images\chartarea.svg" />
+	  <None Remove="Assets\Images\chartbar.svg" />
+	  <None Remove="Assets\Images\chartfinancial.svg" />
+	  <None Remove="Assets\Images\chartfinancialindicator.svg" />
+	  <None Remove="Assets\Images\chartline.svg" />
+	  <None Remove="Assets\Images\chartnullvalues.svg" />
+	  <None Remove="Assets\Images\chartpie.svg" />
+	  <None Remove="Assets\Images\chartscatter.svg" />
+	  <None Remove="Assets\Images\chat.svg" />
+	  <None Remove="Assets\Images\checkbox.svg" />
+	  <None Remove="Assets\Images\chicken.svg" />
+	  <None Remove="Assets\Images\cleaning.svg" />
+	  <None Remove="Assets\Images\clock.svg" />
+	  <None Remove="Assets\Images\combobox.svg" />
+	  <None Remove="Assets\Images\configuration.svg" />
+	  <None Remove="Assets\Images\customization.svg" />
+	  <None Remove="Assets\Images\dataform.svg" />
+	  <None Remove="Assets\Images\dataform_customization_date.svg" />
+	  <None Remove="Assets\Images\dataform_customization_email.svg" />
+	  <None Remove="Assets\Images\dataform_customization_gender.svg" />
+	  <None Remove="Assets\Images\dataform_customization_name.svg" />
+	  <None Remove="Assets\Images\dataform_customization_password.svg" />
+	  <None Remove="Assets\Images\dataform_customization_phone.svg" />
+	  <None Remove="Assets\Images\dataform_customization_username.svg" />
+	  <None Remove="Assets\Images\dataform_white.svg" />
+	  <None Remove="Assets\Images\datagrid.svg" />
+	  <None Remove="Assets\Images\datagrid_white.svg" />
+	  <None Remove="Assets\Images\datepicker.svg" />
+	  <None Remove="Assets\Images\datetimepicker.svg" />
+	  <None Remove="Assets\Images\dev.svg" />
+	  <None Remove="Assets\Images\developer.svg" />
+	  <None Remove="Assets\Images\developer_grey.svg" />
+	  <None Remove="Assets\Images\docklayout.svg" />
+	  <None Remove="Assets\Images\dotnet_bot.svg" />
+	  <None Remove="Assets\Images\dotnet_bot_2a.svg" />
+	  <None Remove="Assets\Images\economyclass.svg" />
+	  <None Remove="Assets\Images\encoding.svg" />
+	  <None Remove="Assets\Images\entry.svg" />
+	  <None Remove="Assets\Images\entryfirstlook.svg" />
+	  <None Remove="Assets\Images\expander.svg" />
+	  <None Remove="Assets\Images\expenses.svg" />
+	  <None Remove="Assets\Images\export_html.svg" />
+	  <None Remove="Assets\Images\export_pdf.svg" />
+	  <None Remove="Assets\Images\export_text.svg" />
+	  <None Remove="Assets\Images\export_word.svg" />
+	  <None Remove="Assets\Images\firstclass.svg" />
+	  <None Remove="Assets\Images\fish.svg" />
+	  <None Remove="Assets\Images\flight.svg" />
+	  <None Remove="Assets\Images\gauge.svg" />
+	  <None Remove="Assets\Images\home.svg" />
+	  <None Remove="Assets\Images\homepagebackground.svg" />
+	  <None Remove="Assets\Images\homepainting.svg" />
+	  <None Remove="Assets\Images\icon_burger.svg" />
+	  <None Remove="Assets\Images\icon_csharp_ccw.svg" />
+	  <None Remove="Assets\Images\icon_csharp_cw.svg" />
+	  <None Remove="Assets\Images\icon_documentation_white.svg" />
+	  <None Remove="Assets\Images\icon_feedback_white.svg" />
+	  <None Remove="Assets\Images\icon_ninjas.svg" />
+	  <None Remove="Assets\Images\icon_sun.svg" />
+	  <None Remove="Assets\Images\icon_umbrella.svg" />
+	  <None Remove="Assets\Images\icon_video.svg" />
+	  <None Remove="Assets\Images\imageeditor.svg" />
+	  <None Remove="Assets\Images\imageeditor_white.svg" />
+	  <None Remove="Assets\Images\import_html.svg" />
+	  <None Remove="Assets\Images\import_pdf.svg" />
+	  <None Remove="Assets\Images\import_text.svg" />
+	  <None Remove="Assets\Images\import_word.svg" />
+	  <None Remove="Assets\Images\info_desktop.svg" />
+	  <None Remove="Assets\Images\info_mobile.svg" />
+	  <None Remove="Assets\Images\info_mobile_white.svg" />
+	  <None Remove="Assets\Images\itemscontrol.svg" />
+	  <None Remove="Assets\Images\length.svg" />
+	  <None Remove="Assets\Images\listpicker.svg" />
+	  <None Remove="Assets\Images\listview.svg" />
+	  <None Remove="Assets\Images\lock.svg" />
+	  <None Remove="Assets\Images\logo.svg" />
+	  <None Remove="Assets\Images\logosplashscreen.svg" />
+	  <None Remove="Assets\Images\logo_cryptoapp.svg" />
+	  <None Remove="Assets\Images\logo_progress.svg" />
+	  <None Remove="Assets\Images\map.svg" />
+	  <None Remove="Assets\Images\maskedentry.svg" />
+	  <None Remove="Assets\Images\melodicchillout.svg" />
+	  <None Remove="Assets\Images\melodicprogressive.svg" />
+	  <None Remove="Assets\Images\nodata.svg" />
+	  <None Remove="Assets\Images\numericinput.svg" />
+	  <None Remove="Assets\Images\pasta.svg" />
+	  <None Remove="Assets\Images\path.svg" />
+	  <None Remove="Assets\Images\pdfprocessing.svg" />
+	  <None Remove="Assets\Images\pdfviewer.svg" />
+	  <None Remove="Assets\Images\pdfviewer_white.svg" />
+	  <None Remove="Assets\Images\popup.svg" />
+	  <None Remove="Assets\Images\popup_drive_icon.svg" />
+	  <None Remove="Assets\Images\pork.svg" />
+	  <None Remove="Assets\Images\productmanager.svg" />
+	  <None Remove="Assets\Images\productmanager_grey.svg" />
+	  <None Remove="Assets\Images\progressbar.svg" />
+	  <None Remove="Assets\Images\qa.svg" />
+	  <None Remove="Assets\Images\rating.svg" />
+	  <None Remove="Assets\Images\ratingrestaurantlogo.svg" />
+	  <None Remove="Assets\Images\remote_work.svg" />
+	  <None Remove="Assets\Images\richtexteditor.svg" />
+	  <None Remove="Assets\Images\search.svg" />
+	  <None Remove="Assets\Images\searchentry.svg" />
+	  <None Remove="Assets\Images\searchheader.svg" />
+	  <None Remove="Assets\Images\segmentedcontrol.svg" />
+	  <None Remove="Assets\Images\settings.svg" />
+	  <None Remove="Assets\Images\sidedrawer.svg" />
+	  <None Remove="Assets\Images\signaturepad.svg" />
+	  <None Remove="Assets\Images\slideview.svg" />
+	  <None Remove="Assets\Images\spreadstreamprocessing.svg" />
+	  <None Remove="Assets\Images\tabview.svg" />
+	  <None Remove="Assets\Images\templatedpicker.svg" />
+	  <None Remove="Assets\Images\timepicker.svg" />
+	  <None Remove="Assets\Images\timespanpicker.svg" />
+	  <None Remove="Assets\Images\time_off.svg" />
+	  <None Remove="Assets\Images\toolbar.svg" />
+	  <None Remove="Assets\Images\toolbar_white.svg" />
+	  <None Remove="Assets\Images\top.svg" />
+	  <None Remove="Assets\Images\train.svg" />
+	  <None Remove="Assets\Images\treeview.svg" />
+	  <None Remove="Assets\Images\ux.svg" />
+	  <None Remove="Assets\Images\uxdesigner.svg" />
+	  <None Remove="Assets\Images\uxdesigner_grey.svg" />
+	  <None Remove="Assets\Images\viewcode.svg" />
+	  <None Remove="Assets\Images\viewcode_white.svg" />
+	  <None Remove="Assets\Images\vocalchillout.svg" />
+	  <None Remove="Assets\Images\wordsprocessing.svg" />
+	  <None Remove="Assets\Images\wraplayout.svg" />
+	  <None Remove="Assets\Images\ziplibrary.svg" />
+	  <None Remove="Business\Data\OrdersDataSource.xml" />
+	  <None Remove="Business\Data\PeopleDataSource.xml" />
+	</ItemGroup>
+</Project>

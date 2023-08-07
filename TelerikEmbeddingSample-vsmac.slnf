@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "TelerikEmbeddingSample.sln",
+    "projects": [
+      "TelerikEmbeddingSample.Mobile\\TelerikEmbeddingSample.Mobile.csproj",
+      "TelerikEmbeddingSample.Base\\TelerikEmbeddingSample.Base.csproj",
+      "TelerikEmbeddingSample\\TelerikEmbeddingSample.csproj"
+    ]
+  }
+}
