@@ -13,9 +13,4 @@
 		<PackageReference Include="Telerik.UI.for.Maui" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="EmbeddedResources.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
 </Project>

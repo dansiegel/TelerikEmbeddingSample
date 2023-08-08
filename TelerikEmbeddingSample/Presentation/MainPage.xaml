@@ -25,7 +25,8 @@
         <NavigationViewItem Content="Calendar" uen:Region.Name="Calendar" />
         <NavigationViewItem Content="Chart" uen:Region.Name="Chart" />
         <NavigationViewItem Content="Data Grid" uen:Region.Name="DataGrid" />
-			</NavigationView.MenuItems>
+        <NavigationViewItem Content="PDF Viewer" uen:Region.Name="PdfViewer" />
+      </NavigationView.MenuItems>
       <Grid uen:Region.Attached="True"
             uen:Region.Navigator="Visibility"></Grid>
 		</NavigationView>

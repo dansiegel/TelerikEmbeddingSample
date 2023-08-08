@@ -61,7 +61,8 @@ public class App : Application
 			new ViewMap<BadgeViewControlPage, BadgeViewControlViewModel>(),
 			new ViewMap<CalendarControlPage, CalendarControlViewModel>(),
 			new ViewMap<ChartControlPage, ChartControlViewModel>(),
-			new ViewMap<DataGridControlPage, DataGridControlViewModel>()
+			new ViewMap<DataGridControlPage, DataGridControlViewModel>(),
+			new ViewMap<PdfViewerControlPage, PdfViewerControlViewModel>()
 		);
 
 		routes.Register(
@@ -75,6 +76,7 @@ public class App : Application
 						new RouteMap("Calendar", View: views.FindByViewModel<CalendarControlViewModel>()),
 						new RouteMap("Chart", View: views.FindByViewModel<ChartControlViewModel>()),
 						new RouteMap("DataGrid", View: views.FindByViewModel<DataGridControlViewModel>()),
+						new RouteMap("PdfViewer", View: views.FindByViewModel<PdfViewerControlViewModel>()),
 					}),
 				}
 			)
