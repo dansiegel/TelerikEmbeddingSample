@@ -39,7 +39,7 @@ public class App : Application
 				)
 				// Enable localization (see appsettings.json for supported languages)
 				.UseLocalization()
-				.UseMauiEmbedding(this, maui => maui.ConfigureMauiEmbedding())
+				.UseMauiEmbedding(this, maui => maui.UseMauiControls())
 				.ConfigureServices((context, services) => {
 					services.AddSingleton<DataGenerator>()
 						.AddSingleton<IResourceService, AssemblyResourceService>()
@@ -70,11 +70,11 @@ public class App : Application
 				{
 					new RouteMap("Main", View: views.FindByViewModel<MainViewModel>(), Nested: new RouteMap[]
 					{
-						new RouteMap("Accordion", View: views.FindByViewModel<AccordionControlViewModel>()),
+						new RouteMap("Accordion", View: views.FindByViewModel<AccordionControlViewModel>(), IsDefault: true),
 						new RouteMap("BadgeView", View: views.FindByViewModel<BadgeViewControlViewModel>()),
 						new RouteMap("Calendar", View: views.FindByViewModel<CalendarControlViewModel>()),
 						new RouteMap("Chart", View: views.FindByViewModel<ChartControlViewModel>()),
-						new RouteMap("DataGrid", View: views.FindByViewModel<DataGridControlViewModel>(), IsDefault: true),
+						new RouteMap("DataGrid", View: views.FindByViewModel<DataGridControlViewModel>()),
 					}),
 				}
 			)

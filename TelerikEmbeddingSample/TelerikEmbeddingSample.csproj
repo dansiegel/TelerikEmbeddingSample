@@ -344,6 +344,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Assets\Fonts\OpenSans-Regular.ttf" />
+	  <None Remove="Assets\Fonts\telerikfontexamples.ttf" />
 	  <None Remove="Assets\Images\accordion.svg" />
 	  <None Remove="Assets\Images\airplane.svg" />
 	  <None Remove="Assets\Images\arrowleft.svg" />
