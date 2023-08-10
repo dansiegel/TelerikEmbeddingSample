@@ -1,22 +1,24 @@
 <Project ToolsVersion="15.0">
   <ItemGroup>
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-    <PackageVersion Include="CommunityToolkit.Maui" Version="5.2.0" />
+    <PackageVersion Include="SkiaSharp.NativeAssets.Android" Version="2.88.4-preview.89" />
+    <PackageVersion Include="SkiaSharp.NativeAssets.iOS" Version="2.88.4-preview.89" />
+    <PackageVersion Include="SkiaSharp.NativeAssets.MacCatalyst" Version="2.88.4-preview.89" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
     <PackageVersion Include="Telerik.UI.for.Maui" Version="6.0.0" />
     <PackageVersion Include="Uno.Core.Extensions.Logging.Singleton" Version="4.0.1" />
-    <PackageVersion Include="Uno.Extensions.Configuration" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Hosting" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Hosting.WinUI" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Localization" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Localization.WinUI" Version="3.0.0-dev.2112" />
+    <PackageVersion Include="Uno.Extensions.Configuration" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Hosting" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Hosting.WinUI" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Localization" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Localization.WinUI" Version="3.0.0-dev.2142" />
     <PackageVersion Include="Uno.Extensions.Logging.OSLog" Version="1.4.0" />
-    <PackageVersion Include="Uno.Extensions.Logging.Serilog" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Logging.WinUI" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Maui.WinUI" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Navigation" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Navigation.WinUI" Version="3.0.0-dev.2112" />
-    <PackageVersion Include="Uno.Extensions.Navigation.Toolkit.WinUI" Version="3.0.0-dev.2112" />
+    <PackageVersion Include="Uno.Extensions.Logging.Serilog" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Logging.WinUI" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Maui.WinUI" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Navigation" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Navigation.WinUI" Version="3.0.0-dev.2142" />
+    <PackageVersion Include="Uno.Extensions.Navigation.Toolkit.WinUI" Version="3.0.0-dev.2142" />
     <PackageVersion Include="Uno.Material.WinUI" Version="3.0.0-dev.254" />
     <PackageVersion Include="Uno.Dsp.Tasks" Version="1.1.0" />
     <PackageVersion Include="Uno.Toolkit.WinUI" Version="4.0.0-dev.27" />

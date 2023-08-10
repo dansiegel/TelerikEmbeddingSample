@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui;
 using Telerik.Maui.Controls.Compatibility;
 using TelerikEmbeddingSample.Business.Services;
 
@@ -39,7 +38,8 @@ public class App : Application
 				)
 				// Enable localization (see appsettings.json for supported languages)
 				.UseLocalization()
-				.UseMauiEmbedding(this, maui => maui.UseMauiControls())
+				.UseMauiEmbedding(this, maui => maui.UseMauiControls()
+					.UseMauiEmbeddingResources<MauiControls.EmbeddedResources>())
 				.ConfigureServices((context, services) => {
 					services.AddSingleton<DataGenerator>()
 						.AddSingleton<IResourceService, AssemblyResourceService>()

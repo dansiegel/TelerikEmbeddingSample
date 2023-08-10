@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Maui;
-using Telerik.Maui.Controls.Compatibility;
+﻿using Telerik.Maui.Controls.Compatibility;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TelerikEmbeddingSample.MauiControls;
@@ -8,13 +7,13 @@ public static class AppBuilderExtensions
 {
     public static void UseMauiControls(this MauiAppBuilder maui)
     {
-        maui.Services.AddSingleton<IApplication>(sp =>
-        {
-            var app = new Application();
-            app.Resources.MergedDictionaries.Add(new EmbeddedResources());
-            return app;
-        });
-        maui.UseMauiCommunityToolkit()
+        //maui.Services.AddSingleton<IApplication>(sp =>
+        //{
+        //    var app = new Application();
+        //    app.Resources.MergedDictionaries.Add(new EmbeddedResources());
+        //    return app;
+        //});
+        maui
             .UseTelerik()
             .ConfigureFonts(fonts =>
             {

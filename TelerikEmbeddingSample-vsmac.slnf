@@ -4,6 +4,8 @@
     "projects": [
       "TelerikEmbeddingSample.Mobile\\TelerikEmbeddingSample.Mobile.csproj",
       "TelerikEmbeddingSample.Base\\TelerikEmbeddingSample.Base.csproj",
+      "TelerikEmbeddingSample.MauiControls\\TelerikEmbeddingSample.MauiControls.csproj",
+      "TelerikEmbeddingSample.Models\\TelerikEmbeddingSample.Models.csproj",
       "TelerikEmbeddingSample\\TelerikEmbeddingSample.csproj"
     ]
   }

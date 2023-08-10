@@ -47,6 +47,7 @@
 			</ItemGroup>
 			<ItemGroup>
 				<AndroidEnvironment Include="Android/environment.conf" />
+				<PackageReference Include="SkiaSharp.NativeAssets.Android" />
 			</ItemGroup>
 		</When>
 		<When Condition="$(IsIOS)">
@@ -60,6 +61,9 @@
 				<!-- https://github.com/xamarin/xamarin-macios/issues/14812 -->
 				<MtouchExtraArgs>$(MtouchExtraArgs) --marshal-objectivec-exceptions:disable</MtouchExtraArgs>
 			</PropertyGroup>
+			<ItemGroup>
+				<PackageReference Include="SkiaSharp.NativeAssets.iOS" />
+			</ItemGroup>
 		</When>
 		<When Condition="$(IsMacCatalyst)">
 			<PropertyGroup>
@@ -75,6 +79,9 @@
 				<!-- https://github.com/xamarin/xamarin-macios/issues/14812 -->
 				<MtouchExtraArgs>$(MtouchExtraArgs) --marshal-objectivec-exceptions:disable</MtouchExtraArgs>
 			</PropertyGroup>
+			<ItemGroup>
+				<PackageReference Include="SkiaSharp.NativeAssets.MacCatalyst" />
+			</ItemGroup>
 		</When>
 	</Choose>
 	<ItemGroup>
