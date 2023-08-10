@@ -1,8 +1,8 @@
 namespace TelerikEmbeddingSample.MauiControls;
 
-public partial class ChartSample : ContentView
+public partial class AreaChartSample : ContentView
 {
-	public ChartSample()
+	public AreaChartSample()
 	{
 		InitializeComponent();
 	}

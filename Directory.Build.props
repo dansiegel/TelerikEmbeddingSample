@@ -7,7 +7,6 @@
 		https://platform.uno/docs/articles/guides/solution-building-single-targetframework.html 
 	-->
 	<Import Project="solution-config.props" Condition="exists('solution-config.props')" />
-	
 
 	<PropertyGroup>
 		<ImplicitUsings>enable</ImplicitUsings>

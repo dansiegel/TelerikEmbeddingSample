@@ -20,9 +20,9 @@ namespace TelerikEmbeddingSample.Presentation
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ChartControlPage : Page
+    public sealed partial class AreaChartControlPage : Page
     {
-        public ChartControlPage()
+        public AreaChartControlPage()
         {
             this.InitializeComponent();
         }

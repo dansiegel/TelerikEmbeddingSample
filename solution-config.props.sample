@@ -9,7 +9,7 @@
 			3) Make sure to do a Rebuild, so that nuget restores the proper packages for the new target
 	-->
 
-    <PropertyGroup>
+	<PropertyGroup>
 		<!-- Uncomment each line for each platform that you want to build: -->
 		
 		<!-- <OverrideTargetFrameworks Condition="''!='hint: Windows App Sdk (WinUI)'">$(OverrideTargetFrameworks);net7.0-windows10.0.18362</OverrideTargetFrameworks> -->
@@ -17,6 +17,6 @@
 		<!-- <OverrideTargetFrameworks Condition="''!='hint: .NET 6.0 iOS'">$(OverrideTargetFrameworks);net7.0-ios</OverrideTargetFrameworks> -->
 		<!-- <OverrideTargetFrameworks Condition="''!='hint: .NET 6.0 Android'">$(OverrideTargetFrameworks);net7.0-android</OverrideTargetFrameworks> -->
 		<!-- <OverrideTargetFrameworks Condition="''!='hint: .NET 6.0 macOS Catalyst'">$(OverrideTargetFrameworks);net7.0-maccatalyst</OverrideTargetFrameworks> -->
-    </PropertyGroup>
+	</PropertyGroup>
 
 </Project>

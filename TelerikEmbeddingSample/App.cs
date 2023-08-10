@@ -60,8 +60,10 @@ public class App : Application
 			new ViewMap<AccordionControlPage, AccordionControlViewModel>(),
 			new ViewMap<BadgeViewControlPage, BadgeViewControlViewModel>(),
 			new ViewMap<CalendarControlPage, CalendarControlViewModel>(),
-			new ViewMap<ChartControlPage, ChartControlViewModel>(),
 			new ViewMap<DataGridControlPage, DataGridControlViewModel>(),
+			new ViewMap<AreaChartControlPage, AreaChartControlViewModel>(),
+			new ViewMap<FinancialChartControlPage, FinancialChartControlViewModel>(),
+			new ViewMap<GuageControlPage>(),
 			new ViewMap<PdfViewerControlPage, PdfViewerControlViewModel>()
 		);
 
@@ -72,10 +74,12 @@ public class App : Application
 					new RouteMap("Main", View: views.FindByViewModel<MainViewModel>(), Nested: new RouteMap[]
 					{
 						new RouteMap("Accordion", View: views.FindByViewModel<AccordionControlViewModel>(), IsDefault: true),
+						new RouteMap("AreaChart"),
 						new RouteMap("BadgeView", View: views.FindByViewModel<BadgeViewControlViewModel>()),
 						new RouteMap("Calendar", View: views.FindByViewModel<CalendarControlViewModel>()),
-						new RouteMap("Chart", View: views.FindByViewModel<ChartControlViewModel>()),
 						new RouteMap("DataGrid", View: views.FindByViewModel<DataGridControlViewModel>()),
+						new RouteMap("FinancialChart"),
+						new RouteMap("Gauge", View: views.FindByView<GuageControlPage>()),
 						new RouteMap("PdfViewer", View: views.FindByViewModel<PdfViewerControlViewModel>()),
 					}),
 				}

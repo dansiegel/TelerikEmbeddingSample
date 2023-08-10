@@ -23,8 +23,10 @@
         <NavigationViewItem Content="Accordion" uen:Region.Name="Accordion" />
         <NavigationViewItem Content="Badge View" uen:Region.Name="BadgeView" />
         <NavigationViewItem Content="Calendar" uen:Region.Name="Calendar" />
-        <NavigationViewItem Content="Chart" uen:Region.Name="Chart" />
         <NavigationViewItem Content="Data Grid" uen:Region.Name="DataGrid" />
+        <NavigationViewItem Content="Area Chart" uen:Region.Name="AreaChart" />
+        <NavigationViewItem Content="Financial Chart" uen:Region.Name="FinancialChart" />
+        <NavigationViewItem Content="Guage" uen:Region.Name="Guage" />
         <NavigationViewItem Content="PDF Viewer" uen:Region.Name="PdfViewer" />
       </NavigationView.MenuItems>
       <Grid uen:Region.Attached="True"

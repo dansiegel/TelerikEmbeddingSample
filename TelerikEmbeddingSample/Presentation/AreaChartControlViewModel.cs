@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TelerikEmbeddingSample.Presentation
+namespace TelerikEmbeddingSample.Presentation;
+
+internal class AreaChartControlViewModel
 {
-    internal class ChartControlViewModel
-    {
-    }
 }
