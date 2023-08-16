@@ -28,6 +28,12 @@
         <NavigationViewItem Content="Financial Chart" uen:Region.Name="FinancialChart" />
         <NavigationViewItem Content="Guage" uen:Region.Name="Guage" />
         <NavigationViewItem Content="PDF Viewer" uen:Region.Name="PdfViewer" />
+        <NavigationViewItem>
+          <NavigationViewItem.Content>
+            <TextBlock Text="&#xE901;"
+                       FontFamily="ms-appx:///TelerikEmbeddingSample/Assets/Fonts/telerikfontexamples.ttf#TelerikFontExamples" />
+          </NavigationViewItem.Content>
+        </NavigationViewItem>
       </NavigationView.MenuItems>
       <Grid uen:Region.Attached="True"
             uen:Region.Navigator="Visibility"></Grid>

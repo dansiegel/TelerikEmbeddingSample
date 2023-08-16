@@ -1,11 +1,11 @@
-﻿using Telerik.Maui.Controls.Compatibility;
+using Telerik.Maui.Controls.Compatibility;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TelerikEmbeddingSample.MauiControls;
 
 public static class AppBuilderExtensions
 {
-    public static void UseMauiControls(this MauiAppBuilder maui)
+    public static MauiAppBuilder UseMauiControls(this MauiAppBuilder maui)
     {
         //maui.Services.AddSingleton<IApplication>(sp =>
         //{
@@ -17,8 +17,8 @@ public static class AppBuilderExtensions
             .UseTelerik()
             .ConfigureFonts(fonts =>
             {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("telerikfontexamples.ttf", "TelerikFontExamples");
+                fonts.AddFont("TelerikEmbeddingSample/Assets/Fonts/OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("TelerikEmbeddingSample/Assets/Fonts/telerikfontexamples.ttf", "TelerikFontExamples");
             });
 
 #if __IOS__
@@ -36,6 +36,8 @@ public static class AppBuilderExtensions
         Label.ControlsLabelMapper.AppendToMapping(nameof(Label.LineBreakMode), UpdateMaxLines);
         Label.ControlsLabelMapper.AppendToMapping(nameof(Label.MaxLines), UpdateMaxLines);
 #endif
+
+        return maui;
     }
 
 #if __ANDROID__
