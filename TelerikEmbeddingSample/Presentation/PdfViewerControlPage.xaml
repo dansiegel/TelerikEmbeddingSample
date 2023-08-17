@@ -11,8 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   <Grid>
-    <maui:MauiHost>
-      <controls:PdfViewSample />
-    </maui:MauiHost>
+    <maui:MauiHost Source="controls:PdfViewSample" />
   </Grid>
 </Page>

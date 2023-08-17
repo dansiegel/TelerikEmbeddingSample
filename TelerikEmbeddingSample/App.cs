@@ -38,8 +38,7 @@ public class App : Application
 				)
 				// Enable localization (see appsettings.json for supported languages)
 				.UseLocalization()
-				.UseMauiEmbedding(this, maui => maui.UseMauiControls()
-					.UseMauiEmbeddingResources<MauiControls.EmbeddedResources>())
+				.UseMauiEmbedding<MauiControls.EmbeddingApp>(this, maui => maui.UseMauiControls())
 				.ConfigureServices((context, services) => {
 					services.AddSingleton<DataGenerator>()
 						.AddSingleton<IResourceService, AssemblyResourceService>()

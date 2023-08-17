@@ -11,8 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   <Grid>
-    <maui:MauiHost>
-      <controls:BadgeSample />
-    </maui:MauiHost>
+    <maui:MauiHost Source="controls:BadgeSample" />
   </Grid>
 </Page>

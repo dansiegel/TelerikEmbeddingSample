@@ -18,25 +18,26 @@
 		<utu:NavigationBar Content="{Binding Title}" />
 
 		<NavigationView uen:Region.Attached="True"
-										Grid.Row="1">
-      <NavigationView.MenuItems>
-        <NavigationViewItem Content="Accordion" uen:Region.Name="Accordion" />
-        <NavigationViewItem Content="Badge View" uen:Region.Name="BadgeView" />
-        <NavigationViewItem Content="Calendar" uen:Region.Name="Calendar" />
-        <NavigationViewItem Content="Data Grid" uen:Region.Name="DataGrid" />
-        <NavigationViewItem Content="Area Chart" uen:Region.Name="AreaChart" />
-        <NavigationViewItem Content="Financial Chart" uen:Region.Name="FinancialChart" />
-        <NavigationViewItem Content="Guage" uen:Region.Name="Guage" />
-        <NavigationViewItem Content="PDF Viewer" uen:Region.Name="PdfViewer" />
-        <NavigationViewItem>
-          <NavigationViewItem.Content>
-            <TextBlock Text="&#xE901;"
-                       FontFamily="ms-appx:///TelerikEmbeddingSample/Assets/Fonts/telerikfontexamples.ttf#TelerikFontExamples" />
-          </NavigationViewItem.Content>
-        </NavigationViewItem>
-      </NavigationView.MenuItems>
-      <Grid uen:Region.Attached="True"
-            uen:Region.Navigator="Visibility"></Grid>
+										Grid.Row="1" >
+			<NavigationView.MenuItems>
+				<NavigationViewItem Content="Accordion" uen:Region.Name="Accordion" />
+				<NavigationViewItem Content="Badge View" uen:Region.Name="BadgeView" />
+				<NavigationViewItem Content="Calendar" uen:Region.Name="Calendar" />
+				<NavigationViewItem Content="Data Grid" uen:Region.Name="DataGrid" />
+				<NavigationViewItem Content="Area Chart" uen:Region.Name="AreaChart" />
+				<NavigationViewItem Content="Financial Chart" uen:Region.Name="FinancialChart" />
+				<NavigationViewItem Content="Guage" uen:Region.Name="Guage" />
+				<NavigationViewItem Content="PDF Viewer" uen:Region.Name="PdfViewer" />
+				<NavigationViewItem>
+					<NavigationViewItem.Content>
+						<TextBlock Text="&#xE901;"
+											 FontFamily="ms-appx:///TelerikEmbeddingSample/Assets/Fonts/telerikfontexamples.ttf#TelerikFontExamples" />
+					</NavigationViewItem.Content>
+				</NavigationViewItem>
+			</NavigationView.MenuItems>
+			<Grid uen:Region.Attached="True"
+						uen:Region.Navigator="Visibility"
+            Margin="20,20,0,0"></Grid>
 		</NavigationView>
 	</Grid>
 </Page>

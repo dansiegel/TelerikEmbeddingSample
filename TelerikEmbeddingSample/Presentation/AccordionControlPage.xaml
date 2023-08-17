@@ -11,8 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   <Grid>
-    <maui:MauiHost>
-      <controls:AccordionSample />
-    </maui:MauiHost>
+    <maui:MauiHost Source="controls:AccordionSample" />
   </Grid>
 </Page>

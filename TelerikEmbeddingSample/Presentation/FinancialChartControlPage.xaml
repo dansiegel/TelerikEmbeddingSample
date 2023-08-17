@@ -11,8 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   <Grid>
-    <maui:MauiHost>
-      <controls:FinancialChartSample />
-    </maui:MauiHost>
+    <maui:MauiHost Source="controls:FinancialChartSample" />
   </Grid>
 </Page>

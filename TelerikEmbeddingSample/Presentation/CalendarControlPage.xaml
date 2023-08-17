@@ -11,8 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   <Grid>
-    <maui:MauiHost>
-      <controls:CalendarSample />
-    </maui:MauiHost>
+    <maui:MauiHost Source="controls:CalendarSample" />
   </Grid>
 </Page>

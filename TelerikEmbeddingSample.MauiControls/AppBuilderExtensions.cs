@@ -1,4 +1,4 @@
-using Telerik.Maui.Controls.Compatibility;
+﻿using Telerik.Maui.Controls.Compatibility;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TelerikEmbeddingSample.MauiControls;

@@ -11,8 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   <Grid>
-    <maui:MauiHost>
-      <controls:GuageSample />
-    </maui:MauiHost>
+    <maui:MauiHost Source="controls:GuageSample" />
   </Grid>
 </Page>
