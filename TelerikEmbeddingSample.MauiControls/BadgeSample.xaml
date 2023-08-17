@@ -22,7 +22,7 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
       </Style>
       <Style x:Key="DefaultTabItemIconStyle" TargetType="Label" 
-                   BasedOn="{StaticResource DefaultTabItemStyle}">
+             BasedOn="{StaticResource DefaultTabItemStyle}">
         <Setter Property="FontSize" Value="Title" />
         <Setter Property="FontFamily" Value="TelerikFontExamples"/>
       </Style>
@@ -123,16 +123,18 @@
                        Style="{StaticResource DefaultTabItemLabelStyle}" />
       </StackLayout>
       <telerik:RadBadgeView BadgeType="Dot" Grid.Column="3"
-                                  BadgeBackgroundColor="{StaticResource DisabledBadgeBackground}"
-                                  Style="{StaticResource DefaultBadgeViewStyle}"
-                                  BadgeVerticalAlignment="Start"
-                                  BadgeOffsetX="{OnPlatform Android=-5, iOS=-7, Default=-12}">
+                            BadgeBackgroundColor="{StaticResource DisabledBadgeBackground}"
+                            Style="{StaticResource DefaultBadgeViewStyle}"
+                            BadgeVerticalAlignment="Start"
+                            BadgeOffsetX="{OnPlatform Android=-5, iOS=-7, Default=-12}">
         <telerik:RadBadgeView.Content>
           <StackLayout>
-            <Label Text="&#xE901;" TextColor="{StaticResource DisabledTextColorLight}"
-                               Style="{StaticResource DefaultTabItemIconStyle}" />
-            <Label Text="Activity" TextColor="{StaticResource DisabledTextColorLight}"
-                               Style="{StaticResource DefaultTabItemLabelStyle}" />
+            <Label Text="&#xE901;" 
+                   TextColor="{StaticResource DisabledTextColorLight}"
+                   Style="{StaticResource DefaultTabItemIconStyle}" />
+            <Label Text="Activity" 
+                   TextColor="{StaticResource DisabledTextColorLight}"
+                   Style="{StaticResource DefaultTabItemLabelStyle}" />
           </StackLayout>
         </telerik:RadBadgeView.Content>
       </telerik:RadBadgeView>
