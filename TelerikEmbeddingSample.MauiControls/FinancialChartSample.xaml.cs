@@ -1,5 +1,6 @@
 using Telerik.Maui.Controls.Compatibility.Chart;
 using TelerikEmbeddingSample.Business.Models;
+using TelerikEmbeddingSample.Presentation;
 
 namespace TelerikEmbeddingSample.MauiControls;
 
@@ -10,18 +11,22 @@ public partial class FinancialChartSample : ContentView
         InitializeComponent();
     }
 
-    protected override void OnBindingContextChanged()
+    protected override async void OnBindingContextChanged()
     {
         if (BindingContext is null)
             return;
 
-        var trend = trendlinePicker.ItemsSource.Cast<object>().FirstOrDefault();
+        RootGrid.BindingContext = BindingContext;
+
+        var trend = trendlinePicker.ItemsSource?.Cast<object>().FirstOrDefault();
         if (trend is not null)
             trendlinePicker.SelectedItem = trend;
 
-        var indicator = indicatorPicker.ItemsSource.Cast<object>().FirstOrDefault();
+        var indicator = indicatorPicker.ItemsSource?.Cast<object>().FirstOrDefault();
         if (indicator is not null)
             indicatorPicker.SelectedItem = indicator;
+
+        //TSeries.ItemsSource = data.SeriesData;
     }
 
     private void OnIndicatorPickerSelectedIndexChanged(object sender, EventArgs e)

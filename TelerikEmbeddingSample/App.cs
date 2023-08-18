@@ -1,9 +1,15 @@
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
 using Telerik.Maui.Controls.Compatibility;
 using TelerikEmbeddingSample.Business.Services;
 
 namespace TelerikEmbeddingSample;
 
+#if WINDOWS
+public class App : MauiWinUIApplication
+#else
 public class App : Application
+#endif
 {
 	protected Window? MainWindow { get; private set; }
 	protected IHost? Host { get; private set; }
@@ -77,7 +83,7 @@ public class App : Application
 						new RouteMap("BadgeView", View: views.FindByViewModel<BadgeViewControlViewModel>()),
 						new RouteMap("Calendar", View: views.FindByViewModel<CalendarControlViewModel>()),
 						new RouteMap("DataGrid", View: views.FindByViewModel<DataGridControlViewModel>()),
-						new RouteMap("FinancialChart"),
+						new RouteMap("FinancialChart", View: views.FindByViewModel<FinancialChartControlViewModel>()),
 						new RouteMap("Gauge", View: views.FindByView<GuageControlPage>()),
 						new RouteMap("PdfViewer", View: views.FindByViewModel<PdfViewerControlViewModel>()),
 					}),
@@ -85,4 +91,10 @@ public class App : Application
 			)
 		);
 	}
+#if WINDOWS
+	protected override MauiApp CreateMauiApp()
+    {
+        throw new NotImplementedException();
+    }
+#endif
 }

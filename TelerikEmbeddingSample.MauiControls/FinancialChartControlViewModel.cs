@@ -1,8 +1,10 @@
 ﻿using System.Text.Json;
+using CommunityToolkit.Mvvm.ComponentModel;
+using TelerikEmbeddingSample.Business.Models;
 
 namespace TelerikEmbeddingSample.Presentation;
 
-internal partial class FinancialChartControlViewModel : ObservableObject
+public partial class FinancialChartControlViewModel : ObservableObject
 {
     public FinancialChartControlViewModel()
     {

@@ -9,7 +9,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="AppleStockPrices.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="AppleStockPrices.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Telerik.UI.for.Maui" />
+		<PackageReference Include="CommunityToolkit.Mvvm" />
 	</ItemGroup>
 
 	<ItemGroup>
