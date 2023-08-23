@@ -3,7 +3,7 @@ using TelerikEmbeddingSample.Business.Services;
 
 namespace TelerikEmbeddingSample;
 
-public class App : Application
+public class App : EmbeddingApplication
 {
 	protected Window? MainWindow { get; private set; }
 	protected IHost? Host { get; private set; }
