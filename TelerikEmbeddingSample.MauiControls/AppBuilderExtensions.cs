@@ -18,7 +18,7 @@ public static class AppBuilderExtensions
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("TelerikEmbeddingSample/Assets/Fonts/OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("TelerikEmbeddingSample/Assets/Fonts/telerikfontexamples.ttf", "TelerikFontExamples");
+                fonts.AddFont("TelerikEmbeddingSample/Assets/Fonts/telerikfont.ttf", "TelerikFont");
             });
 
 #if __IOS__

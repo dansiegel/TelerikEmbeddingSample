@@ -24,7 +24,7 @@
       <Style x:Key="DefaultTabItemIconStyle" TargetType="Label" 
              BasedOn="{StaticResource DefaultTabItemStyle}">
         <Setter Property="FontSize" Value="Title" />
-        <Setter Property="FontFamily" Value="TelerikFontExamples"/>
+        <Setter Property="FontFamily" Value="TelerikFont"/>
       </Style>
       <Style x:Key="DefaultTabItemLabelStyle" TargetType="Label" 
                    BasedOn="{StaticResource DefaultTabItemStyle}">
