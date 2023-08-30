@@ -87,7 +87,7 @@ public class App : EmbeddingApplication
                         new RouteMap("Calendar", View: views.FindByViewModel<CalendarControlViewModel>()),
                         new RouteMap("DataGrid", View: views.FindByViewModel<DataGridControlViewModel>()),
                         new RouteMap("FinancialChart", View: views.FindByViewModel<FinancialChartControlViewModel>()),
-                        new RouteMap("Gauge", View: views.FindByView<GuageControlPage>()),
+                        new RouteMap("Guage", View: views.FindByView<GuageControlPage>()),
                         new RouteMap("PdfViewer", View: views.FindByViewModel<PdfViewerControlViewModel>()),
                     }),
                 }
